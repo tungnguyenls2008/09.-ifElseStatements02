@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Days of the month</title>
+</head>
+<body>
+<input type="number" id="monthInput" placeholder="Month">
+<input type="number" id="yearInput" placeholder="Year">
+<button type="button" onclick="checkMonth()">Confirm the month</button>
+<div id="display"></div>
+<script>
+    function checkMonth() {
+        let m = document.getElementById('monthInput').value;
+        m = parseFloat(m);
+        console.log(m);
+        if (m > 12) {
+            document.getElementById('display').innerHTML = "Not a month of any year, smartass!";
+        } else {
+            countTheDays();
+        }
+    }
+
+    {
+        function countTheDays() {
+            let m = document.getElementById('monthInput').value;
+            m = parseInt(m);
+            let y = document.getElementById('yearInput').value;
+            y = parseInt(y);
+            document.getElementById('display').innerHTML = "month " + m + "th of the year " + y + " has " + countDays(m, y) + " days";
+        }
+
+        function countDays(m, y) {
+            switch (m) {
+                case 1:
+                case 3:
+                case 5:
+                case 7:
+                case 8:
+                case 10:
+                case 12:
+                    return 31;
+                case 4:
+                case 6:
+                case 9:
+                case 11:
+                    return 30;
+                case 2:
+                    if (leafyear(y)) return 29;
+                    else return 28;
+                default:
+                    return "Not a month of the year!";
+            }
+        }
+
+        function leafyear(y) {
+            return (y % 400 === 0) || (y % 400 === 0 && y % 100 !== 0);
+        }
+    }
+</script>
+</body>
+</html>
