@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SIMPLE CALCULATOR</title>
+</head>
+<style>
+    td {
+        border: 1px solid darkblue;
+        size: 40px;
+    }
+    fieldset {
+        margin: auto;
+        width: 20%;
+    }
+    legend {
+        align-content: center;
+        text-align: center;
+        font-size: 40px;
+    }
+    div {
+        text-align: center;
+        margin: auto;
+    }
+    button {
+        width: 100%;
+    }
+    body {
+        margin: auto;
+    }
+</style>
+<body>
+<div id="outbox">
+    <fieldset><legend>SIMPLE CALCULATOR</legend>
+        <form>
+            <table>
+                <tr>
+                    <td colspan="2"><input id="output" onkeypress="buttonclk()" disabled type="text" placeholder="0"></td>
+                    <td colspan="2"><input id="result" disabled type="text" placeholder="0"></td>
+                </tr>
+                <tr>
+                    <!--<td>
+                        <button type="button" value="rad">Rad</button>
+                    </td>
+                    <td>
+                        <button type="button" value="b2"></button>
+                    </td>
+                    <td>
+                        <button type="button" value="c2">x!</button>
+                    </td>
+                    <td>
+                        <button type="button" value="(" onclick=buttonclk(this.value)>(</button>
+                    </td>
+                    <td>
+                        <button type="button" value=")" onclick=buttonclk(this.value)>)</button>
+                    </td>
+                    <td>
+                        <button type="button" value="f2">%</button>
+                    </td>-->
+                    <td>
+                        <button type="reset">AC</button>
+                    </td>
+                </tr>
+                <tr>
+                    <!--<td>
+                        <button type="button" value="lnv">lnv</button>
+                    </td>
+                    <td>
+                        <button type="button" value="sin">sin</button>
+                    </td>
+                    <td>
+                        <button type="button" value="ln">ln</button>
+                    </td>-->
+                    <td>
+                        <button type="button" value="7" onclick=buttonclk(this.value)>7</button>
+                    </td>
+                    <td>
+                        <button type="button" value="8" onclick=buttonclk(this.value)>8</button>
+                    </td>
+                    <td>
+                        <button type="button" value="9" onclick=buttonclk(this.value)>9</button>
+                    </td>
+                    <td>
+                        <button type="button" value="/" onclick=buttonclk(this.value)>/</button>
+                    </td>
+                </tr>
+                <tr>
+                    <!--<td>
+                        <button type="button" value="3.1415" onclick=buttonclk(this.value)>pi</button>
+                    </td>
+                    <td>
+                        <button type="button" value="cos">cos</button>
+                    </td>
+                    <td>
+                        <button type="button" value="log">log</button>
+                    </td>-->
+                    <td>
+                        <button type="button" value="4" onclick=buttonclk(this.value)>4</button>
+                    </td>
+                    <td>
+                        <button type="button" value="5" onclick=buttonclk(this.value)>5</button>
+                    </td>
+                    <td>
+                        <button type="button" value="6" onclick=buttonclk(this.value)>6</button>
+                    </td>
+                    <td>
+                        <button type="button" value="*" onclick=buttonclk(this.value)>*</button>
+                    </td>
+                </tr>
+                <tr>
+                    <!--<td>
+                        <button type="button" value="e">e</button>
+                    </td>
+                    <td>
+                        <button type="button" value="tan">tan</button>
+                    </td>
+                    <td>
+                        <button type="button" value="c5">&radic;</button>
+                    </td>-->
+                    <td>
+                        <button type="button" value="1" onclick=buttonclk(this.value)>1</button>
+                    </td>
+                    <td>
+                        <button type="button" value="2" onclick=buttonclk(this.value)>2</button>
+                    </td>
+                    <td>
+                        <button type="button" value="3" onclick=buttonclk(this.value)>3</button>
+                    </td>
+                    <td>
+                        <button type="button" value="-" onclick=buttonclk(this.value)>-</button>
+                    </td>
+                </tr>
+                <tr>
+                    <!--<td>
+                        <button type="button" value="ans">Ans</button>
+                    </td>
+                    <td>
+                        <button type="button" value="exp">Exp</button>
+                    </td>
+                    <td>
+                        <button type="button" value="xy">xy</button>
+                    </td>-->
+                    <td>
+                        <button type="button" value="0" onclick=buttonclk(this.value)>0</button>
+                    </td>
+                    <td>
+                        <button type="button" value="." onclick=buttonclk(this.value)>.</button>
+                    </td>
+                    <td>
+                        <button type="button" onclick=equal()>=</button>
+                    </td>
+                    <td>
+                        <button type="button" value="+" onclick=buttonclk(this.value)>+</button>
+                    </td>
+                </tr>
+
+            </table>
+        </form>
+        <script>
+
+            let rs = document.getElementById('output');
+
+
+            function buttonclk(op) {
+                rs.value += op;
+            }
+
+            function equal() {
+                let e;
+                e = eval(rs.value);
+                console.log(e);
+                document.getElementById("result").value = e;
+            }
+        </script>
+    </fieldset>
+</div>
+</body>
+</html>
