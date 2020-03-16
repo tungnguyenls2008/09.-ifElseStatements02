@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GOOD FAST CHEAP</title>
+</head>
+<body>
+<fieldset>
+    <legend style="text-align: center"><h1>YOUR CHOICE</h1></legend>
+    <fieldset style="text-align: center">
+        <input type="checkbox" id="good" onclick="goodChecked()">GOOD
+        <input type="checkbox" id="fast" onclick="fastChecked()">FAST
+        <input type="checkbox" id="cheap" onclick="cheapChecked()">CHEAP
+    </fieldset>
+</fieldset>
+<script>
+    let g = document.getElementById('good');
+    let f = document.getElementById('fast');
+    let c = document.getElementById('cheap');
+    g.checked = false;
+    f.checked = false;
+    c.checked = false;
+
+    function goodChecked() {
+        if (f.checked && c.checked) {
+            c.checked = false;
+        }
+    }
+
+    function fastChecked() {
+        if (f.checked && c.checked) {
+            g.checked = false;
+        }
+    }
+
+    function cheapChecked() {
+        if (g.checked && c.checked) {
+            f.checked = false;
+        }
+    }
+</script>
+</body>
+</html>
