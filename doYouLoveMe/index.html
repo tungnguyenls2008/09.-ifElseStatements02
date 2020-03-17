@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DO YOU LOVE ME?</title>
+</head>
+<body>
+<fieldset style="margin: auto; width: 50%; text-align: center">
+    <legend style="text-align: center"><h1>DO YOU LOVE ME?</h1></legend>
+    <table style="margin: auto">
+        <tr>
+            <td><button type="button" id="ehYes" onclick="ehYes()">eh...yes?</button></td>
+            <td><button type="button" id="hellNo" onmouseover="hellNo()" style="position: absolute">HELL NO!</button></td>
+        </tr>
+        <tr><div id="yes"></div></tr></table>
+</fieldset>
+<script>
+    function ehYes() {
+        document.getElementById('yes').innerHTML="I know you will :)";
+    }
+    function hellNo() {
+        let x = Math.round(Math.random() * window.innerWidth);
+        let y = Math.round(Math.random() * window.innerHeight);
+        document.getElementById('hellNo').style.left = x + 'px';
+        document.getElementById('hellNo').style.top = y + 'px';
+    }
+</script>
+</body>
+</html>
