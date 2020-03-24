@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<fieldset>
+    <legend>CONVERT CELSIUS TO FAHRENHEIT</legend>
+    <input type="number" id="Celsius" placeholder="Enter your temperature in Celsius ">
+    <button type="button" onclick="convertCtoF(getValue('Celsius'))">CONVERT TO FAHRENHEIT</button>
+    <div id="result1"></div>
+</fieldset>
+<fieldset>
+    <legend>CONVERT METRE TO FEET</legend>
+    <input type="number" id="metre" placeholder="Enter your data in metre">
+    <button type="button" onclick="convertMetreToFeet(getValue('metre'))">CONVERT TO FEET</button>
+    <div id="result2"></div>
+</fieldset>
+<fieldset>
+    <legend>CALCULATE SQUARE'S SQUARE</legend>
+    <input type="number" id="squareEdge" placeholder="Enter your Square's edge in cm">
+    <button type="button" onclick="calSquareSurface(getValue('squareEdge'))">CALCULATE SQUARE'S SQUARE</button>
+    <div id="result3"></div>
+</fieldset>
+<fieldset>
+    <legend>CALCULATE RECTANGLE'S SURFACE</legend>
+    <input type="number" id="rectangleEdgeA" placeholder="Enter your Rectangle's first edge in cm">
+    <input type="number" id="rectangleEdgeB" placeholder="Enter your Rectangle's second edge in cm">
+    <button type="button" onclick="calRectangleSurface(getValue('rectangleEdgeA'),getValue('rectangleEdgeB'))">CALCULATE
+        RECTANGLE'S SURFACE
+    </button>
+    <div id="result4"></div>
+</fieldset>
+<fieldset>
+    <legend>CALCULATE TRIANGLE'S SURFACE</legend>
+    <input type="number" id="triangleEdgeA" placeholder="Enter your Triangle's first edge in cm">
+    <input type="number" id="triangleEdgeB" placeholder="Enter your Triangle's second edge in cm">
+    <button type="button" onclick="calRightTriangle(getValue('triangleEdgeA'),getValue('triangleEdgeB'))">CALCULATE
+        TRIANGLE'S SURFACE
+    </button>
+    <div id="result5"></div>
+</fieldset>
+<fieldset>
+    <legend>SOLVE FIRST ORDER EQUATION</legend>
+    <input type="number" id="a" placeholder="Enter a's value">
+    <input type="number" id="b" placeholder="Enter b's value">
+    <button type="button" onclick="solveFirstOrderEquations(getValue('a'),getValue('b'))">SOLVE FIRST ORDER EQUATION
+    </button>
+    <div id="result6"></div>
+</fieldset>
+<fieldset>
+    <legend>SOLVE QUADRATIC EQUATION</legend>
+    <input type="number" id="aa" placeholder="Enter a's value">
+    <input type="number" id="bb" placeholder="Enter b's value">
+    <input type="number" id="cc" placeholder="Enter c's value">
+    <button type="button" onclick="solveQuadraticEquations(getValue('aa'),getValue('bb'),getValue('cc'))">SOLVE
+        QUADRATIC EQUATION
+    </button>
+    <div id="result7"></div>
+</fieldset>
+<fieldset>
+    <legend>CHECK IF OF HUMAN AGE'S RANGE</legend>
+    <input type="number" id="age" placeholder="Enter your age">
+    <button type="button" onclick="checkIfAge(getValue('age'))">CHECK IF OF HUMAN AGE'S RANGE</button>
+    <div id="result8"></div>
+</fieldset>
+<fieldset>
+    <legend>CHECK IF IS A TRIANGLE</legend>
+    <input type="number" id="triangleEdgeAA" placeholder="Enter your Triangle's first edge in cm">
+    <input type="number" id="triangleEdgeBB" placeholder="Enter your Triangle's second edge in cm">
+    <input type="number" id="triangleEdgeCC" placeholder="Enter your Triangle's third edge in cm">
+    <button type="button"
+            onclick="triangleExistence(getValue('triangleEdgeAA'),getValue('triangleEdgeBB'),getValue('triangleEdgeCC'))">
+        CHECK IF IS A TRIANGLE
+    </button>
+    <div id="result9"></div>
+</fieldset>
+<fieldset>
+    <legend>CALCULATE ELECTRIC BILL</legend>
+    <input type="number" id="totalE" placeholder="Enter your consumed Electric unit">
+    <button type="button" onclick="calElectricBill(getValue('totalE'))">CALCULATE ELECTRIC BILL</button>
+    <div id="result10"></div>
+</fieldset>
+<fieldset>
+    <legend>CALCULATE PERSONAL INCOME TAX</legend>
+    <input type="number" id="income" placeholder="Enter your income">
+    <button type="button" onclick="calPersonalIncomeTax(getValue('income'))">CALCULATE PERSONAL INCOME TAX</button>
+    <div id="result11"></div>
+</fieldset>
+<fieldset>
+    <legend>CALCULATE BANK INTEREST</legend>
+    <input type="number" id="loanSum" placeholder="Enter your loan sum">
+    <input type="number" id="month" placeholder="Enter months of return">
+    <input type="number" id="rate" placeholder="Enter interest rate per month">
+    <button type="button" onclick="calBankInterest(getValue('loanSum'),getValue('month'),getValue('rate'))">CALCULATE
+        BANK INTEREST
+    </button>
+    <div id="result12"></div>
+</fieldset>
+<script>
+    function getValue(id) {
+        return +document.getElementById(id).value;
+    }
+
+    function getElement(id) {
+        return document.getElementById(id);
+    }
+
+    function convertCtoF(c) {
+        getElement("result1").innerHTML = c + "&deg;C is " + ((c * 9 / 5) + 32) + "&deg;F";
+    }
+
+    function convertMetreToFeet(m) {
+        getElement("result2").innerHTML = m + " metres is " + (m * 3.2808) + "feet";
+    }
+
+    function calSquareSurface(a) {
+        getElement("result3").innerHTML = "This square's surface is: " + (a * a) + "cm&sup2;";
+    }
+
+    function calRectangleSurface(a, b) {
+        getElement('result4').innerHTML = "This rectangle is: " + (a * b) + "cm&sup2;";
+    }
+
+    function calRightTriangle(a, b) {
+        getElement('result5').innerHTML = "This right triangle is: " + (a * b / 2) + "cm&sup2;";
+    }
+
+    function solveFirstOrderEquations(a, b) {
+        if (a === 0) {
+            if (b === 0) {
+                getElement('result6').innerHTML = "Equation has countless solutions."
+            } else getElement('result6').innerHTML = "Equation has NO solution."
+        } else {
+            getElement('result6').innerHTML = "Equation has ONE solution and it is: " + (-b / a);
+        }
+    }
+
+    function solveQuadraticEquations(a, b, c) {
+        let delta = (b * b) - (4 * a * c);
+        if (delta < 0) {
+            getElement('result7').innerHTML = "Equation has NO solution"
+        } else if (delta === 0) {
+            getElement('result7').innerHTML = "Equation has dual solutions,x1 = x2 = " + (-b / (2 * a));
+        } else if (delta > 0) {
+            getElement('result7').innerHTML = "Equation has TWO solutions, x1 = " + ((-b + Math.sqrt(delta)) / (2 * a)) + " and x2 = " + ((-b - Math.sqrt(delta)) / (2 * a));
+        }
+    }
+
+    function checkIfAge(age) {
+        if (age > 0 && age <= 120) {
+            getElement('result8').innerHTML = "This is of human's age range"
+        } else getElement('result8').innerHTML = "This is NOT of human's age range"
+    }
+
+    function triangleExistence(a, b, c) {
+        if ((a + b > c) && (a + c > b) && (b + c > a) && a > 0 && b > 0 && c > 0) {
+            getElement('result9').innerHTML = "This is a triangle!";
+        } else {
+            getElement('result9').innerHTML = "This is NOT a triangle!";
+        }
+    }
+
+    function calElectricBill(e) {
+        if (e <= 50) {
+            getElement('result10').innerHTML = "your electric bill's total is: " + e * 3000;
+        } else if (e <= 100) {
+            let below50 = 150000;
+            let over50 = (e - 50) * 5000;
+            getElement('result10').innerHTML = "your electric bill's total is: " + (below50 + over50);
+        } else if (e > 100) {
+            let below50 = 150000;
+            let over50 = 250000;
+            let over100 = (e - 100) * 8000;
+            getElement('result10').innerHTML = "your electric bill's total is: " + (below50 + over50 + over100);
+        }
+    }
+
+    function calPersonalIncomeTax(income) {
+        if (income < 10000000)
+            getElement('result11').innerHTML = "you're broke, you don't have to pay a damn.";
+        else if (income >= 10000000 && income < 25000000) {
+            getElement('result11').innerHTML = "You have to pay " + income * 8 / 100 + " in taxes";
+        } else if (income >= 25000000)
+            getElement('result11').innerHTML = "You have to pay " + income * 10 / 100 + " in taxes";
+    }
+
+    function calBankInterest(sum, month, rate) {
+        getElement('result12').innerHTML = "the interest you have to return to the bank is: " + sum / month / (rate * 10 / 100);
+    }
+
+</script>
+</body>
+</html>
