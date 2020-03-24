@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FIRST BLOOD</title>
+</head>
+<body>
+<fieldset>
+    <legend>CHECK DIVISIBILITY</legend>
+    <input type="number" id="first" placeholder="Enter first digit here">
+    <input type="number" id="second" placeholder="Enter second digit here">
+    <button type="button" onclick="checkDivisibility(getValue('first'),getValue('second'))">CHECK DIVISIBILITY</button>
+    <div id="result1"></div>
+</fieldset>
+<fieldset>
+    <legend>CHECK IF ACCEPTABLE TO TEN GRADE</legend>
+    <input type="number" id="age" placeholder="Enter age">
+    <button type="button" onclick="checkIfTenGrade(getValue('age'))">CHECK IF ACCEPTABLE</button>
+    <div id="result2"></div>
+</fieldset>
+<fieldset>
+    <legend>CHECK IF BIGGER THAN ZERO</legend>
+    <input type="number" id="compareToZero" placeholder="Enter your number">
+    <button type="button" onclick="checkIfBiggerThanZero(getValue('compareToZero'))">CHECK IF BIGGER THAN ZERO</button>
+    <div id="result3"></div>
+</fieldset>
+<fieldset>
+    <legend>FIND MAX</legend>
+    <input type="number" id="a" placeholder="Enter your first number">
+    <input type="number" id="b" placeholder="Enter your second number">
+    <input type="number" id="c" placeholder="Enter your third number">
+    <button type="button" onclick="findMax(getValue('a'),getValue('b'),getValue('c'))">FIND MAX</button>
+    <div id="result4"></div>
+
+</fieldset>
+<fieldset>
+    <legend>RANK THE PUPIL!</legend>
+    <input type="number" id="daily" placeholder="Enter pupil's daily test result:">
+    <input type="number" id="midSession" placeholder="Enter pupil's mid-session test result:">
+    <input type="number" id="endSession" placeholder="Enter pupil's end-session test result:">
+    <button type="button" onclick="rankThePupil(getValue('daily'),getValue('midSession'),getValue('endSession'))">RANK
+        THE PUPIL!
+    </button>
+    <div id="result5"></div>
+</fieldset>
+<fieldset>
+    <legend>CALCULATE INTEREST RATE</legend>
+    <input type="number" id="total" placeholder="Enter employee's total sale">
+    <button type="button" onclick="calInterestRate(getValue('total'))">CALCULATE THE INTEREST</button>
+    <div id="result6"></div>
+</fieldset>
+<fieldset>
+    <legend>CALCULATE THE PHONE BILL</legend>
+    <input type="number" id="call" placeholder="Enter the total Call fee:">
+    <input type="number" id="4g" placeholder="Enter the total 4G Internet fee:">
+    <input type="number" id="roaming" placeholder="Enter the total Roaming fee:">
+    <button type="button" onclick="calPhoneFee(getValue('call'),getValue('4g'),getValue('roaming'))">CALCULATE THE PHONE
+        BILL
+    </button>
+    <div id="result7"></div>
+
+</fieldset>
+<script>
+    function getValue(id) {
+        return +document.getElementById(id).value;
+    }
+
+    function getElement(id) {
+        return document.getElementById(id);
+    }
+
+    function checkDivisibility(a, b) {
+        if (a % b === 0) {
+            document.getElementById("result1").innerHTML = a + " is divisible to " + b;
+        } else document.getElementById("result1").innerHTML = "They're not divisible to each other.";
+    }
+
+    function checkIfTenGrade(age) {
+        if (age > 15) {
+            getElement('result2').innerHTML = "This one is old enough to be in Ten grade.";
+        } else getElement('result2').innerHTML = "This one is too young!";
+    }
+
+    function checkIfBiggerThanZero(a) {
+        if (a > 0) {
+            getElement('result3').innerHTML = a + " is bigger than Zero.";
+        } else if (a < 0) {
+            getElement('result3').innerHTML = a + " is smaller than Zero.";
+        } else getElement('result3').innerHTML = a + " equals Zero.";
+    }
+
+    function findMax(a, b, c) {
+        getElement('result4').innerHTML = Math.max(a, b, c) + " is the biggest!";
+    }
+
+    function rankThePupil(a, b, c) {
+        let rank = (a + (b * 2) + (c * 3)) / 6;
+        if (rank >= 8.5) {
+            getElement('result5').innerHTML = "This one is great!"
+        } else if (rank >= 6.5) {
+            getElement('result5').innerHTML = "This one is good!"
+        } else if (rank >= 4) {
+            getElement('result5').innerHTML = "this one is acceptable."
+        } else {
+            getElement('result5').innerHTML = "This one is miserable."
+        }
+    }
+
+    function calInterestRate(total) {
+        let a = parseFloat(total);
+        if (a < 50000000) {
+            getElement('result6').innerHTML = "Nothing for you, you lazy ass!"
+        } else if (a <= 100000000) {
+            getElement('result6').innerHTML = "Here is your Interest rate for this month: " + (a * 5 / 100) + "vnd"
+        } else if (a > 100000000) {
+            getElement('result6').innerHTML = "Here is your Interest rate for this month: " + (a * 7.5 / 100) + "vnd"
+        } else getElement('result6').innerHTML = "Something is wrong."
+    }
+
+    function calPhoneFee(a, b, c) {
+        getElement('result7').innerHTML = "your phone bill total is: " + ((a * 2350) + (b * 4500) + (c * 7700));
+    }
+</script>
+</body>
+</html>
