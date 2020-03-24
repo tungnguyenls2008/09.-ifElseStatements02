@@ -1,25 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>WHO'S HIDING?</title>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel='stylesheet' type="text/css" href="./css/normalize.css">
-    <link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
-    <link rel='stylesheet' type="text/css" href='./css/style.css'>
-    <script type="text/javascript" src="./js/jquery-1.12.2.js"></script>
-    <script type="text/javascript" src="./js/bootstrap.js"></script>
+    <title>WHO'S HIDING?</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<fieldset>
-    <legend>WHO'S HIDING?</legend>
+<fieldset id="theWholeThing">
+    <legend style="text-align: center"><h1>WHO'S HIDING?</h1></legend>
+    <div id="info" style="color: aquamarine" hidden></div>
     <div class="container-fluid">
-        <div class="puzzles">
-            <img id="img1" src="" alt="" />
-            <img id="img2" src="" alt="" />
-            <img id="img3" src="" alt="" />
-            <img id="img4" src="" alt="" />
-            <img id="img5" src="" alt="" />
+        <div class="puzzles" id="puzzles" style="margin: auto;width: fit-content">
+            <img id="img1" src="images/lion1.jpg" alt="" onclick="firstPiece()"/><br>
+            <img id="img2" src="images/tiger2.jpg" alt="" onclick="secondPiece()"/><br>
+            <img id="img3" src="images/wolf3.jpg" alt="" onclick="thirdPiece()"/><br>
+            <img id="img4" src="images/lion4.jpg" alt="" onclick="forthPiece()"/><br>
+            <img id="img5" src="images/tiger5.jpg" alt="" onclick="fifthPiece()"/><br>
         </div>
     </div>
     <script type="text/javascript" src="./js/scripts.js"></script>
